@@ -19,7 +19,7 @@
                     BackgroundColor="#22A7F0"
                     x:Name="ButtonLogin"
                     Clicked="btnClick"/>
-                <Label x:Name="lblMensaje" Text="SSS"/>
+                <Label x:Name="lblMensaje" Text="..."/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

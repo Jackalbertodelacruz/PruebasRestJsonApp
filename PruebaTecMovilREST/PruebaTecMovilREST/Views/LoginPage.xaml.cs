@@ -35,23 +35,17 @@ namespace PruebaTecMovilREST.Views
         public async void MPostAsync()
         {
             string url = "http://blumonpay.biz/BancaMifel/Pruebas/login_test";
-          
-
             string myJson = "{'Usuario':'asd','Contrasena':'123'}";
-
             var obj = new Login { User = "login", Pass = "din@gmail.com" };
             string json = JsonConvert.SerializeObject(obj, Formatting.Indented);
-
             string json2 = await Task.Run(() => JsonConvert.SerializeObject(obj, Formatting.Indented));
 
             var httpContent = new StringContent(myJson, Encoding.UTF8, "application/json");
             using (var httpClient = new HttpClient())
             {
-                // Error here 
                 var httpResponse = await httpClient.PostAsync(url, httpContent);
                 if (httpResponse.Content != null)
                 {
-                    // Error Here 
                     var responseContent = await httpResponse.Content.ReadAsStringAsync();
                     lblMensaje.Text = responseContent;
                 }
